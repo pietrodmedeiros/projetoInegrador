@@ -6,6 +6,7 @@ public class Boletim {
 	private Double notaP1;
 	private Double notaP2;
 	private Double notaP3;
+
 	public Integer getId_aluno() {
 		return id_aluno;
 	}
@@ -44,8 +45,4 @@ public class Boletim {
 		this.notaP2 = notaP2;
 		this.notaP3 = notaP3;
 	}
-	
-	
-	
-    
 }

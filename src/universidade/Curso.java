@@ -30,6 +30,4 @@ public class Curso {
 		this.id_professor = id_professor;
 	}
 	
-	
-
 }
