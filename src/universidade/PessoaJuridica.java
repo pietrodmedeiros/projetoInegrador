@@ -2,7 +2,7 @@ package universidade;
 
 public class PessoaJuridica extends Pessoa{
     private Integer cnpj;
-    private  String razao_social;
+    private String razao_social;
     private String nome_fantasia;
 
     public Integer getCnpj() {
@@ -29,7 +29,7 @@ public class PessoaJuridica extends Pessoa{
         this.nome_fantasia = nome_fantasia;
     }
 
-    public PessoaJuridica(String nome, Integer endereco_id, Integer cnpj, String razao_social, String nome_fantasia) {
+    public PessoaJuridica(String nome, Endereco endereco_id, Integer cnpj, String razao_social, String nome_fantasia) {
         super(nome, endereco_id);
         this.cnpj = cnpj;
         this.razao_social = razao_social;

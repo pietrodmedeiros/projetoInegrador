@@ -9,6 +9,7 @@ public class Endereco {
 	private String cidade;
 	private String estado;
 	private Integer endereco_id;
+
 	public Integer getCep() {
 		return cep;
 	}
@@ -57,7 +58,15 @@ public class Endereco {
 	public void setEndereco_id(Integer endereco_id) {
 		this.endereco_id = endereco_id;
 	}
-	
-	
-	
+
+	public Endereco(Integer cep, String logradouro, Integer numero, String complemento, String bairro, String cidade, String estado, Integer endereco_id) {
+		this.cep = cep;
+		this.logradouro = logradouro;
+		this.numero = numero;
+		this.complemento = complemento;
+		this.bairro = bairro;
+		this.cidade = cidade;
+		this.estado = estado;
+		this.endereco_id = endereco_id;
+	}
 }

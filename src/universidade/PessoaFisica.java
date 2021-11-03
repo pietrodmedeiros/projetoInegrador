@@ -4,7 +4,7 @@ import javax.xml.crypto.Data;
 
 public class PessoaFisica extends Pessoa{
     private Integer cpf;
-    private  Integer rg;
+    private Integer rg;
     private Data data_nasc;
     private String genero;
     private Integer telefone;
@@ -68,8 +68,7 @@ public class PessoaFisica extends Pessoa{
         this.matricula = matricula;
     }
 
-    //método construtor
-    public PessoaFisica(String nome, Integer endereco_id, Integer cpf, Integer rg, Data data_nasc, String genero, Integer telefone, String email, Integer matricula) {
+    public PessoaFisica(String nome, Endereco endereco_id, Integer cpf, Integer rg, Data data_nasc, String genero, Integer telefone, String email, Integer matricula) {
         super(nome, endereco_id);
         this.cpf = cpf;
         this.rg = rg;

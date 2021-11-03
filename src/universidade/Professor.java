@@ -5,10 +5,11 @@ import javax.xml.crypto.Data;
 public class Professor extends PessoaFisica{
     private Integer id_professor;
     private String cargo;
-    private String cursos;
+    private Curso nome_curso;
     private String materia;
 
     //getters e setters
+
 
     public Integer getId_professor() {
         return id_professor;
@@ -26,12 +27,12 @@ public class Professor extends PessoaFisica{
         this.cargo = cargo;
     }
 
-    public String getCursos() {
-        return cursos;
+    public Curso getNome_curso() {
+        return nome_curso;
     }
 
-    public void setCursos(String cursos) {
-        this.cursos = cursos;
+    public void setNome_curso(Curso nome_curso) {
+        this.nome_curso = nome_curso;
     }
 
     public String getMateria() {
@@ -42,13 +43,11 @@ public class Professor extends PessoaFisica{
         this.materia = materia;
     }
 
-    //método construtor
-
-    public Professor(String nome, Integer endereco_id, Integer cpf, Integer rg, Data data_nasc, String genero, Integer telefone, String email, Integer matricula, Integer id_professor, String cargo, String cursos, String materia) {
+    public Professor(String nome, Endereco endereco_id, Integer cpf, Integer rg, Data data_nasc, String genero, Integer telefone, String email, Integer matricula, Integer id_professor, String cargo, Curso nome_curso, String materia) {
         super(nome, endereco_id, cpf, rg, data_nasc, genero, telefone, email, matricula);
         this.id_professor = id_professor;
         this.cargo = cargo;
-        this.cursos = cursos;
+        this.nome_curso = nome_curso;
         this.materia = materia;
     }
 }
