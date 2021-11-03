@@ -1,7 +1,6 @@
 package universidade;
 
-import javax.xml.crypto.Data;
-import java.util.ArrayList;
+import java.util.Date;
 
 public class Aluno extends PessoaFisica{
     private Integer id_aluno;
@@ -38,10 +37,11 @@ public class Aluno extends PessoaFisica{
     // método construtor
 
 
-    public Aluno(String nome, Endereco endereco_id, Integer cpf, Integer rg, Data data_nasc, String genero, Integer telefone, String email, Integer matricula, Integer id_aluno, String situacao, Curso id_curso) {
+    public Aluno(String nome, Endereco endereco_id, Integer cpf, Integer rg, Date data_nasc, String genero, Integer telefone, String email, Integer matricula, Integer id_aluno, String situacao, Curso id_curso) {
         super(nome, endereco_id, cpf, rg, data_nasc, genero, telefone, email, matricula);
         this.id_aluno = id_aluno;
         this.situacao = situacao;
         this.id_curso = id_curso;
     }
+
 }

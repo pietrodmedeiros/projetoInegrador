@@ -38,10 +38,8 @@ public class Curso {
 		this.id_professor = id_professor;
 	}
 
-	public Curso(String nome_curso, Integer id_curso, Aluno[] id_aluno, Professor id_professor) {
+	public Curso(String nome_curso, Integer id_curso) {
 		this.nome_curso = nome_curso;
 		this.id_curso = id_curso;
-		this.id_aluno = id_aluno;
-		this.id_professor = id_professor;
 	}
 }

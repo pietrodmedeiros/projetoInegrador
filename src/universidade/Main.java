@@ -1,34 +1,44 @@
 package universidade;
 
+import java.util.Date;
+
 public class Main {
     public static void main(String[] args) {
-        var endereco1 = new Endereco(801010, "rua 1", 1, 0, "centro", "sao paulo", "sp", 01);
+        var endereco1 = new Endereco(801010, "Rua 1", 1, "casa 4", "Centro", "Sao Paulo", "SP", 01);
+        var curso1 = new Curso("ADS", 012);
+        
+        var endereco2 = new Endereco(801011, "Rua Laura Miller", 1, "casa 3", "Copacabana", "Rio de Janeiro", "RJ", 02);
+
+  
+        
         var aluno1 = new Aluno("João da Silva",
-               1,
+               endereco1,
                 025555,
                 4887585,
-                0,
+                new Date(),
                 "masculino",
                 33666665,
                 "joaosilva@silva.com",
                 158477,
                 01,
                 "Ativo",
-                012);
+                curso1);
 
         var aluno2 = new Aluno("Mariana da Silva",
-                15857,
+                endereco2,
                 025544,
                 4887500,
-                0,
-                "masculino",
+                new Date(),
+                "feminino",
                 33666655,
                 "mariana@silva.com",
-                158477,
+                158471,
                 02,
                 "Ativo",
-                012);
-        System.out.println(aluno1, aluno2);
+                curso1);
+        
+        System.out.println(aluno1.getGenero());
+        System.out.println(aluno2.getNome());
     }
 }
 
