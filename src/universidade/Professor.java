@@ -1,7 +1,7 @@
 package universidade;
 
 import javax.xml.crypto.Data;
-
+import java.util.Date;
 public class Professor extends PessoaFisica{
     private Integer id_professor;
     private String cargo;
@@ -43,7 +43,7 @@ public class Professor extends PessoaFisica{
         this.materia = materia;
     }
 
-    public Professor(String nome, Endereco endereco_id, Integer cpf, Integer rg, Data data_nasc, String genero, Integer telefone, String email, Integer matricula, Integer id_professor, String cargo, Curso nome_curso, String materia) {
+    public Professor(String nome, Endereco endereco_id, Integer cpf, Integer rg, Date data_nasc, String genero, Integer telefone, String email, Integer matricula, Integer id_professor, String cargo, Curso nome_curso, String materia) {
         super(nome, endereco_id, cpf, rg, data_nasc, genero, telefone, email, matricula);
         this.id_professor = id_professor;
         this.cargo = cargo;

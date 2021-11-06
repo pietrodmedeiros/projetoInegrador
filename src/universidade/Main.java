@@ -1,18 +1,23 @@
 package universidade;
 
 import java.util.Date;
+import java.io.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args)  throws IOException {
+
+        //criando a função para escrever nos arquivos
+        BufferedWriter br = new BufferedWriter(new FileWriter("alunos.txt"));
+
         var endereco1 = new Endereco(801010, "Rua 1", 1, "casa 4", "Centro", "Sao Paulo", "SP", 01);
         var curso1 = new Curso("ADS", 012);
-        
+
         var endereco2 = new Endereco(801011, "Rua Laura Miller", 1, "casa 3", "Copacabana", "Rio de Janeiro", "RJ", 02);
 
-  
-        
+
+
         var aluno1 = new Aluno("João da Silva",
-               endereco1,
+                endereco1,
                 025555,
                 4887585,
                 new Date(),
@@ -36,10 +41,15 @@ public class Main {
                 02,
                 "Ativo",
                 curso1);
-        
+
         System.out.println(aluno1.getGenero());
         System.out.println(aluno2.getNome());
-    }
+
+        //escrevendo aluno1 no arquivo aluno.txt
+        br.write(String.format(String.valueOf(aluno1)));
+        br.close();
+    };
+
 }
 
 
