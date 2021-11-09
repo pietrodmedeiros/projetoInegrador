@@ -31,8 +31,8 @@ public class Main {
 
         var aluno2 = new Aluno("Mariana da Silva",
                 endereco2,
-                025544,
-                4887500,
+                025547,
+                4887545,
                 new Date(),
                 "feminino",
                 33666655,
@@ -41,15 +41,36 @@ public class Main {
                 02,
                 "Ativo",
                 curso1);
+        
+        var aluno3 = new Aluno("Maria de Almeida",
+                endereco2,
+                025544,
+                48875741,
+                new Date(),
+                "feminino",
+                33666647,
+                "maria@almeida.com",
+                158448,
+                03,
+                "Ativo",
+                curso1);
 
         System.out.println(aluno1.getGenero());
         System.out.println(aluno2.getNome());
+        System.out.println(aluno3.getNome());
 
         //escrevendo aluno1 no arquivo aluno.txt
-        br.write(String.format(String.valueOf(aluno1)));
+        br.write(aluno1.getNome());
+        br.write(aluno1.getCpf());
+        br.write(aluno1.getRg());
+        br.write(aluno1.getGenero());
+        br.write(aluno1.getTelefone());
+        br.write(aluno1.getEmail());
+        br.write(aluno1.getMatricula());
+        
+     
         br.close();
-    };
-
+    }
 }
 
 
