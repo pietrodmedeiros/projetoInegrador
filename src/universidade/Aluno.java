@@ -44,4 +44,9 @@ public class Aluno extends PessoaFisica{
         this.id_curso = id_curso;
     }
 
+    @Override
+    public String toString() {
+        return ("Nome: " + super.getNome() + "  Código: " + id_aluno + "  Situação: " + situacao);
+    }
+
 }
