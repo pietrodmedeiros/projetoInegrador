@@ -3,6 +3,7 @@ package universidade;
 import java.util.Date;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args)  throws IOException {
@@ -12,7 +13,9 @@ public class Main {
 
         var endereco2 = new Endereco(801011, "Rua Laura Miller", 1, "casa 3", "Copacabana", "Rio de Janeiro", "RJ", 02);
 
-        var aluno1 = new Aluno("João da Silva",
+        //criando array alunos e criando os objetos aluno1,2,3...
+        ArrayList<Aluno> alunos = new ArrayList();
+        Aluno aluno1 = new Aluno("João da Silva",
                 endereco1,
                 025555,
                 4887585,
@@ -25,7 +28,7 @@ public class Main {
                 "Ativo",
                 curso1);
 
-        var aluno2 = new Aluno("Mariana da Silva",
+        Aluno aluno2 = new Aluno("Mariana da Silva",
                 endereco2,
                 025547,
                 4887545,
@@ -38,7 +41,7 @@ public class Main {
                 "Ativo",
                 curso1);
         
-        var aluno3 = new Aluno("Maria de Almeida",
+        Aluno aluno3 = new Aluno("Maria de Almeida",
                 endereco2,
                 025544,
                 48875741,
@@ -50,23 +53,6 @@ public class Main {
                 03,
                 "Ativo",
                 curso1);
-
-        //System.out.println(aluno1.getGenero());
-        //System.out.println(aluno2.getNome());
-        //System.out.println(aluno3.getNome());
-
-        //escrevendo aluno1 no arquivo aluno.txt
-        //br.write(aluno1.getNome());
-        //br.write(aluno1.getCpf());
-        //br.write(aluno1.getRg());
-        //br.write(aluno1.getGenero());
-        //br.write(aluno1.getTelefone());
-        //br.write(aluno1.getEmail());
-        //br.write(aluno1.getMatricula());
-        //br.close();
-
-
-        ArrayList<Aluno> alunos = new ArrayList();
 
         Aluno aluno4 = new Aluno("Pedro da Silva Sauro",
                 endereco2,
@@ -107,20 +93,35 @@ public class Main {
                 "Ativo",
                 curso1);
 
+        //imprimindo alunos no terminal
+        //baseado no método toString sobrescrito da classe Aluno
         alunos.add(aluno1);
         alunos.add(aluno2);
         alunos.add(aluno3);
         alunos.add(aluno4);
         alunos.add(aluno5);
         alunos.add(aluno6);
+        alunos.forEach(System.out::println);
 
-        for (Aluno c : alunos) {
-            System.out.println(c);
-        }
         System.out.println("Numero de alunos: " + alunos.size());
+
+        //criando arquivo alunos.txt
+        BufferedWriter br = new BufferedWriter(new FileWriter("alunos.txt"));
+
+        //adicionando nome dos alunos no txt
+        br.write("Nome: " + aluno1.getNome());
+        br.newLine();
+        br.write("Nome: " + aluno2.getNome());
+        br.newLine();
+        br.write("Nome: " + aluno3.getNome());
+        br.newLine();
+        br.write("Nome: " + aluno4.getNome());
+        br.newLine();
+        br.write("Nome: " + aluno5.getNome());
+        br.newLine();
+        br.write("Nome: " + aluno6.getNome());
+        br.close();
+
     }
 }
 
-
-//String nome, Endereco endereco_id, Integer cpf, Integer rg, Data data_nasc, String genero, Integer telefone,
-// String email, Integer matricula, Integer id_aluno, String situacao, Curso id_curso
