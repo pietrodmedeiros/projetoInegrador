@@ -1,12 +1,14 @@
 package universidade;
 
+import java.lang.reflect.Array;
 import java.util.Date;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args)  throws IOException {
+    public static void main(String[] args)  throws Exception {
 
         var endereco1 = new Endereco(801010, "Rua 1", 1, "casa 4", "Centro", "Sao Paulo", "SP", 01);
         var curso1 = new Curso("ADS", 012);
@@ -14,7 +16,7 @@ public class Main {
         var endereco2 = new Endereco(801011, "Rua Laura Miller", 1, "casa 3", "Copacabana", "Rio de Janeiro", "RJ", 02);
 
         //criando array alunos e criando os objetos aluno1,2,3...
-        ArrayList<Aluno> alunos = new ArrayList();
+        List<Aluno> alunos = new ArrayList<Aluno>();
         Aluno aluno1 = new Aluno("João da Silva",
                 endereco1,
                 025555,
@@ -104,6 +106,20 @@ public class Main {
         alunos.forEach(System.out::println);
 
         System.out.println("Numero de alunos: " + alunos.size());
+
+        //tentando salvar o arrayList alunos em um txt
+        File fileAlunos = new File("alunos2.txt");
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fileAlunos));
+        out.writeObject(aluno1);
+        out.flush();
+        out.close();
+
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream(fileAlunos));
+        List<Aluno> list2 = (List<Aluno>) in.readObject();
+        in.close();
+        for (Aluno a : alunos)
+            System.out.println(a);
+
 
         //criando arquivo alunos.txt
         BufferedWriter br = new BufferedWriter(new FileWriter("alunos.txt"));
