@@ -1,8 +1,10 @@
 package universidade;
 
+import java.io.NotSerializableException;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Aluno extends PessoaFisica{
+public class Aluno extends PessoaFisica implements Serializable {
     private Integer id_aluno;
     private String situacao;
     private Curso id_curso;

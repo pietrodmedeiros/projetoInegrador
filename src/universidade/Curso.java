@@ -1,6 +1,8 @@
 package universidade;
 
-public class Curso {
+import java.io.Serializable;
+
+public class Curso implements Serializable {
 	private String nome_curso;
 	private Integer id_curso;
 	private Aluno id_aluno[];

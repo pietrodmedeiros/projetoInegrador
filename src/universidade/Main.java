@@ -108,17 +108,12 @@ public class Main {
         System.out.println("Numero de alunos: " + alunos.size());
 
         //tentando salvar o arrayList alunos em um txt
-        File fileAlunos = new File("alunos2.txt");
-        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fileAlunos));
-        out.writeObject(aluno1);
-        out.flush();
+        FileOutputStream fileAlunos = new FileOutputStream("alunos2.txt");
+        ObjectOutputStream out = new ObjectOutputStream(fileAlunos);
+        out.writeObject(alunos);
         out.close();
+        fileAlunos.close();
 
-        ObjectInputStream in = new ObjectInputStream(new FileInputStream(fileAlunos));
-        List<Aluno> list2 = (List<Aluno>) in.readObject();
-        in.close();
-        for (Aluno a : alunos)
-            System.out.println(a);
 
 
         //criando arquivo alunos.txt
