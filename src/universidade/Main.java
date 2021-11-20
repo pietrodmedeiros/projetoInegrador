@@ -1,138 +1,121 @@
 package universidade;
 
-import java.lang.reflect.Array;
+import java.io.File;
+
+import java.io.FileInputStream;
+
+import java.io.FileNotFoundException;
+
+import java.io.FileOutputStream;
+
+import java.io.IOException;
+
+import java.io.ObjectInputStream;
+
+import java.io.ObjectOutputStream;
+
+import java.io.Serializable;
 import java.util.Date;
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
-public class Main {
-    public static void main(String[] args)  throws Exception {
+public class Main implements Serializable {
 
+    public static void main(String[] args) throws FileNotFoundException, IOException {
+
+
+        // Create some animals from our Serializable class:
         var endereco1 = new Endereco(801010, "Rua 1", 1, "casa 4", "Centro", "Sao Paulo", "SP", 01);
         var curso1 = new Curso("ADS", 012);
+        // Output to the console:
 
-        var endereco2 = new Endereco(801011, "Rua Laura Miller", 1, "casa 3", "Copacabana", "Rio de Janeiro", "RJ", 02);
 
-        //criando array alunos e criando os objetos aluno1,2,3...
-        List<Aluno> alunos = new ArrayList<Aluno>();
-        Aluno aluno1 = new Aluno("João da Silva",
-                endereco1,
-                025555,
-                4887585,
-                new Date(),
-                "masculino",
-                33666665,
-                "joaosilva@silva.com",
-                158477,
-                01,
-                "Ativo",
-                curso1);
+        // Specify the name of our file:
 
-        Aluno aluno2 = new Aluno("Mariana da Silva",
-                endereco2,
-                025547,
-                4887545,
-                new Date(),
-                "feminino",
-                33666655,
-                "mariana@silva.com",
-                158471,
-                02,
-                "Ativo",
-                curso1);
-        
-        Aluno aluno3 = new Aluno("Maria de Almeida",
-                endereco2,
-                025544,
-                48875741,
-                new Date(),
-                "feminino",
-                33666647,
-                "maria@almeida.com",
-                158448,
-                03,
-                "Ativo",
-                curso1);
+        File file = new File("alunos.txt");
 
-        Aluno aluno4 = new Aluno("Pedro da Silva Sauro",
-                endereco2,
-                00000000000,
-                0000000000,
-                null,
-                "masculino",
-                999999999,
-                "pedro@pedro.com.br",
-                584842,
-                0001,
-                "ativo",
-                curso1);
+        // Create a FileOutputStream for writing to the file.
 
-        Aluno aluno5 = new Aluno("Mariana da Silva Sauro ",
-                endereco2,
-                025547,
-                4887545,
-                new Date(),
-                "feminino",
-                33666655,
-                "mariana@silva.com",
-                158471,
-                02,
-                "Ativo",
-                curso1);
+        FileOutputStream fileOutput = new FileOutputStream(file);
 
-        Aluno aluno6 = new Aluno("Maria da Silva Sauro",
-                endereco2,
-                025544,
-                48875741,
-                new Date(),
-                "feminino",
-                33666647,
-                "maria@almeida.com",
-                158448,
-                03,
-                "Ativo",
-                curso1);
+        // Create object output stream to write the serialized objects
 
-        //imprimindo alunos no terminal
-        //baseado no método toString sobrescrito da classe Aluno
-        alunos.add(aluno1);
-        alunos.add(aluno2);
-        alunos.add(aluno3);
-        alunos.add(aluno4);
-        alunos.add(aluno5);
-        alunos.add(aluno6);
-        alunos.forEach(System.out::println);
+        // to the file stream:
 
-        System.out.println("Numero de alunos: " + alunos.size());
+        ObjectOutputStream objectOutput = new ObjectOutputStream(fileOutput);
 
-        //tentando salvar o arrayList alunos em um txt
-        FileOutputStream fileAlunos = new FileOutputStream("alunos2.txt");
-        ObjectOutputStream out = new ObjectOutputStream(fileAlunos);
-        out.writeObject(alunos);
-        out.close();
-        fileAlunos.close();
+        // Write our objects to the stream:
+
+        objectOutput.writeObject(aluno1);
+
+        objectOutput.writeObject(aluno2);
+
+        objectOutput.writeObject(aluno3);
+
+        objectOutput.writeObject(aluno4);
+        objectOutput.writeObject(aluno5);
+        objectOutput.writeObject(aluno6);
 
 
 
-        //criando arquivo alunos.txt
-        BufferedWriter br = new BufferedWriter(new FileWriter("alunos.txt"));
+        // Close the streams:
 
-        //adicionando nome dos alunos no txt
-        br.write("Nome: " + aluno1.getNome());
-        br.newLine();
-        br.write("Nome: " + aluno2.getNome());
-        br.newLine();
-        br.write("Nome: " + aluno3.getNome());
-        br.newLine();
-        br.write("Nome: " + aluno4.getNome());
-        br.newLine();
-        br.write("Nome: " + aluno5.getNome());
-        br.newLine();
-        br.write("Nome: " + aluno6.getNome());
-        br.close();
+        objectOutput.close();
+
+        fileOutput.close();
+
+        /////////////////////////////////////////
+
+        // Reading the objects back into RAM:
+
+        /////////////////////////////////////////
+
+        // Declare an array to hold the animals we read:
+
+        Aluno[] alunos = new Aluno[6];
+
+        // Create a file and an object input stream:
+
+        FileInputStream fileInput = new FileInputStream(file);
+
+        ObjectInputStream objectInput = new ObjectInputStream(fileInput);
+
+
+
+        // Read the objects from the file:
+
+        try {
+
+            alunos[0] = (Aluno) objectInput.readObject();
+
+            alunos[1] = (Aluno) objectInput.readObject();
+            alunos[2] = (Aluno) objectInput.readObject();
+            alunos[3] = (Aluno) objectInput.readObject();
+            alunos[4] = (Aluno) objectInput.readObject();
+            alunos[5] = (Aluno) objectInput.readObject();
+            alunos[6] = (Aluno) objectInput.readObject();
+            // Close the streams:
+
+            objectInput.close();
+
+            fileInput.close();
+
+        }
+
+        catch (ClassNotFoundException e) {
+
+            e.printStackTrace();
+
+        }
+
+        // Print the objects:
+
+        System.out.println("Objects read from file: ");
+
+        for(int i = 0; i < 3; i++) {
+
+            System.out.println(alunos[i]);
+
+        }
 
     }
-}
 
+}
