@@ -25,8 +25,8 @@ public class Fornecedor extends PessoaJuridica{
     //método construtor
 
 
-    public Fornecedor(String nome, Endereco endereco_id, Integer cnpj, String razao_social, String nome_fantasia, Integer codigo, String area_atuacao) {
-        super(nome, endereco_id, cnpj, razao_social, nome_fantasia);
+    public Fornecedor(String nome, Integer cnpj, String razao_social, String nome_fantasia, Integer codigo, String area_atuacao) {
+        super(nome, cnpj, razao_social, nome_fantasia);
         this.codigo = codigo;
         this.area_atuacao = area_atuacao;
     }

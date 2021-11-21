@@ -1,20 +1,6 @@
 package universidade;
 
-import java.io.File;
-
-import java.io.FileInputStream;
-
-import java.io.FileNotFoundException;
-
-import java.io.FileOutputStream;
-
-import java.io.IOException;
-
-import java.io.ObjectInputStream;
-
-import java.io.ObjectOutputStream;
-
-import java.io.Serializable;
+import java.io.*;
 import java.util.Date;
 
 public class Main implements Serializable {
@@ -23,10 +9,13 @@ public class Main implements Serializable {
 
 
         // Create some animals from our Serializable class:
-        var endereco1 = new Endereco(801010, "Rua 1", 1, "casa 4", "Centro", "Sao Paulo", "SP", 01);
-        var curso1 = new Curso("ADS", 012);
-        // Output to the console:
 
+        Aluno aluno1 = new Aluno("Marcelo da Silva Sauro", 01010101, "marcelodasilva@sauro.com", 1010, 0101, "Ativo");
+        Aluno aluno2 = new Aluno("Michele da Silva Sauro", 02020202, "micheledasilva@sauro.com", 1111, 0102, "Ativo");
+        Aluno aluno3 = new Aluno("Juliana da Silva Sauro", 03030303, "julianadasilva@sauro.com", 1212, 0103, "Ativo");
+        Aluno aluno4 = new Aluno("Joe da Silva Sauro", 04040404, "joedasilva@sauro.com", 1313, 0104,"Ativo");
+        Aluno aluno5 = new Aluno("Julia da Silva Sauro", 05050505, "juliadasilva@sauro.com", 1414, 0105, "Ativo");
+        Aluno aluno6 = new Aluno("Pietro da Silva Sauro", 06060606, "pietrodasilva@sauro.com", 1515, 0106, "Ativo");
 
         // Specify the name of our file:
 
@@ -45,11 +34,8 @@ public class Main implements Serializable {
         // Write our objects to the stream:
 
         objectOutput.writeObject(aluno1);
-
         objectOutput.writeObject(aluno2);
-
         objectOutput.writeObject(aluno3);
-
         objectOutput.writeObject(aluno4);
         objectOutput.writeObject(aluno5);
         objectOutput.writeObject(aluno6);
@@ -85,13 +71,12 @@ public class Main implements Serializable {
         try {
 
             alunos[0] = (Aluno) objectInput.readObject();
-
             alunos[1] = (Aluno) objectInput.readObject();
             alunos[2] = (Aluno) objectInput.readObject();
             alunos[3] = (Aluno) objectInput.readObject();
             alunos[4] = (Aluno) objectInput.readObject();
             alunos[5] = (Aluno) objectInput.readObject();
-            alunos[6] = (Aluno) objectInput.readObject();
+
             // Close the streams:
 
             objectInput.close();
@@ -110,7 +95,7 @@ public class Main implements Serializable {
 
         System.out.println("Objects read from file: ");
 
-        for(int i = 0; i < 3; i++) {
+        for(int i = 0; i < 6; i++) {
 
             System.out.println(alunos[i]);
 

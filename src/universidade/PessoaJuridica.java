@@ -29,8 +29,8 @@ public class PessoaJuridica extends Pessoa{
         this.nome_fantasia = nome_fantasia;
     }
 
-    public PessoaJuridica(String nome, Endereco endereco_id, Integer cnpj, String razao_social, String nome_fantasia) {
-        super(nome, endereco_id);
+    public PessoaJuridica(String nome, Integer cnpj, String razao_social, String nome_fantasia) {
+        super(nome);
         this.cnpj = cnpj;
         this.razao_social = razao_social;
         this.nome_fantasia = nome_fantasia;

@@ -1,6 +1,8 @@
 package universidade;
 
-public class Pessoa {
+import java.io.Serializable;
+
+public class Pessoa implements Serializable {
     private String nome;
     private Endereco endereco_id;
 
@@ -20,8 +22,7 @@ public class Pessoa {
         this.endereco_id = endereco_id;
     }
 
-    public Pessoa(String nome, Endereco endereco_id) {
+    public Pessoa(String nome) {
         this.nome = nome;
-        this.endereco_id = endereco_id;
     }
 }

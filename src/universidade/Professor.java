@@ -43,11 +43,9 @@ public class Professor extends PessoaFisica{
         this.materia = materia;
     }
 
-    public Professor(String nome, Endereco endereco_id, Integer cpf, Integer rg, Date data_nasc, String genero, Integer telefone, String email, Integer matricula, Integer id_professor, String cargo, Curso nome_curso, String materia) {
-        super(nome, endereco_id, cpf, rg, data_nasc, genero, telefone, email, matricula);
+    public Professor(String nome, Integer cpf, String email, Integer matricula, Integer id_professor, String cargo) {
+        super(nome, cpf, email, matricula);
         this.id_professor = id_professor;
         this.cargo = cargo;
-        this.nome_curso = nome_curso;
-        this.materia = materia;
     }
 }

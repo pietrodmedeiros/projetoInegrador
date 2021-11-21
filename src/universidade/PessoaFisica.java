@@ -1,8 +1,9 @@
 package universidade;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class PessoaFisica extends Pessoa{
+public class PessoaFisica extends Pessoa implements Serializable {
     private Integer cpf;
     private Integer rg;
     private Date data_nasc;
@@ -68,13 +69,9 @@ public class PessoaFisica extends Pessoa{
         this.matricula = matricula;
     }
 
-    public PessoaFisica(String nome, Endereco endereco_id, Integer cpf, Integer rg, Date data_nasc, String genero, Integer telefone, String email, Integer matricula) {
-        super(nome, endereco_id);
+    public PessoaFisica(String nome, Integer cpf, String email, Integer matricula) {
+        super(nome);
         this.cpf = cpf;
-        this.rg = rg;
-        this.data_nasc = data_nasc;
-        this.genero = genero;
-        this.telefone = telefone;
         this.email = email;
         this.matricula = matricula;
     }
