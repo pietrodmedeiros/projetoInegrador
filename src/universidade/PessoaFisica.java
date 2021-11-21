@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class PessoaFisica extends Pessoa implements Serializable {
-    private Integer cpf;
-    private Integer rg;
+    private String cpf;
+    private String rg;
     private Date data_nasc;
     private String genero;
     private Integer telefone;
@@ -13,19 +13,19 @@ public class PessoaFisica extends Pessoa implements Serializable {
     private Integer matricula;
 
     //getters e setters
-    public Integer getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    public Integer getRg() {
+    public String getRg() {
         return rg;
     }
 
-    public void setRg(Integer rg) {
+    public void setRg(String rg) {
         this.rg = rg;
     }
 
@@ -69,10 +69,9 @@ public class PessoaFisica extends Pessoa implements Serializable {
         this.matricula = matricula;
     }
 
-    public PessoaFisica(String nome, Integer cpf, String email, Integer matricula) {
+    public PessoaFisica(String nome, String cpf, String email) {
         super(nome);
         this.cpf = cpf;
         this.email = email;
-        this.matricula = matricula;
     }
 }

@@ -37,10 +37,8 @@ public class Aluno extends PessoaFisica implements Serializable {
 
 
     // método construtor
-
-
-    public Aluno(String nome, Integer cpf, String email, Integer matricula, Integer id_aluno, String situacao) {
-        super(nome, cpf, email, matricula);
+    public Aluno(String nome, String cpf, String email, Integer id_aluno, String situacao) {
+        super(nome, cpf, email);
         this.id_aluno = id_aluno;
         this.situacao = situacao;
     }
@@ -49,7 +47,10 @@ public class Aluno extends PessoaFisica implements Serializable {
     public String toString() {
         return ("Nome: " + super.getNome() + "; CPF: " + getCpf() + "; email: " + getEmail() + ";  Código: " + id_aluno + ";  Situação: " + situacao);
     }
+
     static File fileAluno = new File("alunos.txt");
+
+    // método que salva os alunos no txt
     public static void cadastrarAlunos(Aluno aluno1, Aluno aluno2, Aluno aluno3, Aluno aluno4, Aluno aluno5, Aluno aluno6) throws IOException {
 
         FileOutputStream fileOutput = new FileOutputStream(fileAluno);
@@ -68,8 +69,8 @@ public class Aluno extends PessoaFisica implements Serializable {
         System.out.println("Alunos cadastrados com sucesso no arquivo: " + fileAluno);
     }
 
+    // método que le o conteúdo do txt e coloca em um array na memória para listar no terminal
     public static void listarAlunos() throws IOException{
-
         Aluno[] alunos = new Aluno[6];
 
         FileInputStream fileInput = new FileInputStream(fileAluno);
@@ -90,8 +91,10 @@ public class Aluno extends PessoaFisica implements Serializable {
         }
 
         System.out.println("=====================LISTA DE ALUNOS CADASTRADOS================== ");
-        for(int i = 0; i < 6; i++) {
+        for(int i = 0; i < alunos.length; i++) {
             System.out.println(alunos[i]);
         }
+        System.out.println("================================================================== \n\n");
+
     }
 }

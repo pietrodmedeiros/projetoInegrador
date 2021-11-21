@@ -1,15 +1,17 @@
 package universidade;
 
-public class PessoaJuridica extends Pessoa{
-    private Integer cnpj;
+import java.io.Serializable;
+
+public class PessoaJuridica extends Pessoa implements Serializable {
+    private String cnpj;
     private String razao_social;
     private String nome_fantasia;
 
-    public Integer getCnpj() {
+    public String getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(Integer cnpj) {
+    public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
 
@@ -29,7 +31,7 @@ public class PessoaJuridica extends Pessoa{
         this.nome_fantasia = nome_fantasia;
     }
 
-    public PessoaJuridica(String nome, Integer cnpj, String razao_social, String nome_fantasia) {
+    public PessoaJuridica(String nome, String cnpj, String razao_social, String nome_fantasia) {
         super(nome);
         this.cnpj = cnpj;
         this.razao_social = razao_social;
