@@ -40,7 +40,7 @@ public class Fornecedor extends PessoaJuridica implements Serializable{
 
     static File fileFornecedor = new File("fornecedores.txt");
 
-    // método que salva os fornecedores no txt
+    // método que salva os fornecedores no txt  utilizando Serialize e Descerialize
     public static void cadastrarFornecedor(Fornecedor fornecedor1, Fornecedor fornecedor2, Fornecedor fornecedor3, Fornecedor fornecedor4) throws IOException {
 
         FileOutputStream fileOutput = new FileOutputStream(fileFornecedor);

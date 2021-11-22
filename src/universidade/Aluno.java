@@ -1,8 +1,6 @@
 package universidade;
 
 import java.io.*;
-import java.util.Date;
-import java.util.List;
 
 public class Aluno extends PessoaFisica implements Serializable {
     private Integer id_aluno;
@@ -50,7 +48,7 @@ public class Aluno extends PessoaFisica implements Serializable {
 
     static File fileAluno = new File("alunos.txt");
 
-    // método que salva os alunos no txt
+    // método que salva os alunos no txt utilizando Serialize e Descerialize
     public static void cadastrarAlunos(Aluno aluno1, Aluno aluno2, Aluno aluno3, Aluno aluno4, Aluno aluno5, Aluno aluno6) throws IOException {
 
         FileOutputStream fileOutput = new FileOutputStream(fileAluno);
@@ -95,6 +93,5 @@ public class Aluno extends PessoaFisica implements Serializable {
             System.out.println(alunos[i]);
         }
         System.out.println("================================================================== \n\n");
-
     }
 }

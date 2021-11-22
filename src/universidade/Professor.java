@@ -1,8 +1,7 @@
 package universidade;
 
-import javax.xml.crypto.Data;
 import java.io.*;
-import java.util.Date;
+
 public class Professor extends PessoaFisica implements Serializable{
     private Integer id_professor;
     private String cargo;
@@ -57,7 +56,7 @@ public class Professor extends PessoaFisica implements Serializable{
 
     static File fileProfessor = new File("professores.txt");
 
-    // método que salva os professores no txt
+    // método que salva os professores no txt utilizando Serialize e Descerialize
     public static void cadastrarProfessor(Professor professor1, Professor professor2, Professor professor3) throws IOException {
 
         FileOutputStream fileOutput = new FileOutputStream(fileProfessor);
