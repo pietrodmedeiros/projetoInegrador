@@ -5,20 +5,16 @@
 
 -----------------------------------------------
 
-### O projeto envolve criar um sistema de cadastros para uma universidade
+### Sistema de cadastros para uma universidade
 
 
-* O software lidará com o cadastro de diferentes tipos de pessoas em um sistema de uma grande universidade, por tanto, o grupo precisará escolher os diagramas da UML mais
-adequados para representar um software que consiga lidar com o cadastro dos itens abaixo.
-  * Pessoa Física
-  * Pessoa Jurídica
-  * Professores
-  * Fornecedores
-  * Alunos
+* O software lida com o cadastro de diferentes tipos de pessoas em um sistema de uma universidade.
 
-* Os dados cadastrados de cada entidade deverão ser armazenados em arquivos de texto simples, sendo um para cada entidade
-  * ex.: professores.txt, fornecedores.txt e alunos.txt
+* Possui os diagramas de Classes, Objetos e Caso de Uso.
 
-* Ainda, o software precisará permitir ao usuário a listagem de cada entidade, de acordo com sua escolha.
-  * ex.: o usuário poderá escolher listar professores, então o software precisará mostrar todos professores na tela.
+* Os dados cadastrados de cada entidade são armazenados em arquivos de texto simples, sendo um para cada entidade
+  * professores.txt, fornecedores.txt e alunos.txt
+
+* O software permite ao usuário a listagem de cada entidade, de acordo com sua escolha.
+  * ex.: o usuário pode escolher listar professores, então o software mostra todos professores na tela.
 
